@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import background_banner from '../assets/background_banner.jpg';
 
 function Login() {
+    const [signState, setSignState] = useState("Sign In");;
     return (
         <div
             className="flex items-center justify-center min-h-screen bg-center bg-cover"
@@ -17,6 +18,7 @@ function Login() {
                 <h1 className="mb-6 text-3xl font-semibold text-center text-gray-800">Sign up</h1>
                 {/* Form */}
                 <form className="space-y-4">
+                    {/* <h1>  {signState}</h1> */}
                     <input required
                         type="text"
                         placeholder="Your name"

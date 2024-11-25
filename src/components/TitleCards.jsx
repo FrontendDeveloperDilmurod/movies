@@ -1,9 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import cards_data from '../assets/cards/Cards_data';
 
-function TitleCards({ title }) {
+function TitleCards({ title, category }) {
+    const [apidate, setApidate] = useState([]);
     const cardsRef = useRef(null);
+
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/ json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2Y2RhNWMzMGJiYjcyM2MyOTUwN2Y1YjNjMGUxZDc4YiIsIm5iZiI6MTczMjUyNjUyMy4xNDIwMjI4LCJzdWIiOiI2NzQxNmZlZDYzNzBlY2FkM2ZmZmM1MDciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.tI4PKJQRSdEsN1MLY1cT4f6EYUPpO4SN2Cqhl0WuQ8o'
+        }
+    };
+
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/movie/${category ? category : "now_playing"}?language=en-US&page=1`, options)
+            .then(res => res.json())
+            .then(res => setApidate(res.results))
+            .catch(err => console.error(err));
+    }, []);
 
     const scrollLeft = () => {
         if (cardsRef.current) {
@@ -45,18 +61,18 @@ function TitleCards({ title }) {
                     className="flex gap-6 overflow-x-scroll scrollbar-hide" // Maxsus scroll uchun class qo'shildi
                     ref={cardsRef}
                 >
-                    {cards_data.map((card) => (
+                    {apidate.map((card) => (
                         <div
                             key={card.id}
                             className="flex-none w-64 overflow-hidden transition-transform duration-300 ease-out transform rounded shadow-lg hover:scale-105 hover:shadow-xl"
                         >
                             <img
-                                src={card.image}
+                                src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path}
                                 alt={card.name}
                                 className="object-cover w-full h-48 cursor-pointer"
                             />
                             <p className="mt-2 text-lg font-medium text-center cursor-pointer">
-                                {card.name}
+                                {card.original_title}
                             </p>
                         </div>
                     ))}

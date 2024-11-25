@@ -3,6 +3,7 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import Home from './pages/Home';
 import RootLayout from './layout/RootLayout';
 import Login from './components/Login';
+import Player from './components/Player';
 
 // Router-ni yaratish
 const router = createBrowserRouter(
@@ -10,6 +11,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path='login' element={<Login />} />
+      <Route path='/player/:id' element={<Player />} />
     </Route>
   )
 );

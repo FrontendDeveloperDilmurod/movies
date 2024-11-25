@@ -6,18 +6,18 @@ import youtube from '../assets/youtube_icon.png';
 
 function Footer() {
     return (
-        <div className="bg-black text-white py-12 mt-[2000px]">
+        <div className="container px-4 py-12 mx-auto text-white bg-black mt-[2200px]">
             {/* Social Media Icons */}
-            <div className="flex justify-center gap-6 mb-8">
-                <img src={facebook} alt="Facebook" className="w-8 h-8 cursor-pointer hover:opacity-75" />
-                <img src={instagram} alt="Instagram" className="w-8 h-8 cursor-pointer hover:opacity-75" />
-                <img src={twitter} alt="Twitter" className="w-8 h-8 cursor-pointer hover:opacity-75" />
-                <img src={youtube} alt="YouTube" className="w-8 h-8 cursor-pointer hover:opacity-75" />
+            <div className="flex justify-center mt-[-100px] gap-4 mb-8 sm:gap-6">
+                <img src={facebook} alt="Facebook" className="w-6 h-6 cursor-pointer sm:w-8 sm:h-8 hover:opacity-75" />
+                <img src={instagram} alt="Instagram" className="w-6 h-6 cursor-pointer sm:w-8 sm:h-8 hover:opacity-75" />
+                <img src={twitter} alt="Twitter" className="w-6 h-6 cursor-pointer sm:w-8 sm:h-8 hover:opacity-75" />
+                <img src={youtube} alt="YouTube" className="w-6 h-6 cursor-pointer sm:w-8 sm:h-8 hover:opacity-75" />
             </div>
 
             {/* Footer Links */}
             <div className="flex justify-center mb-8">
-                <ul className="flex gap-6 text-sm md:gap-8">
+                <ul className="flex flex-wrap gap-4 text-xs sm:text-sm sm:gap-6 lg:gap-8">
                     <li className="cursor-pointer hover:underline">Audio Description</li>
                     <li className="cursor-pointer hover:underline">Help Center</li>
                     <li className="cursor-pointer hover:underline">Gift Cards</li>
@@ -27,7 +27,7 @@ function Footer() {
             </div>
 
             {/* Footer Text */}
-            <div className="text-sm text-center">
+            <div className="text-xs text-center sm:text-sm">
                 <p>&copy; 2024 YourCompany. All rights reserved.</p>
             </div>
         </div>

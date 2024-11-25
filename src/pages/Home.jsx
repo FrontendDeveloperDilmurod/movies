@@ -5,6 +5,8 @@ import play_icon from '../assets/play_icon.png';
 import info_icon from '../assets/info_icon.png';
 import TitleCards from '../components/TitleCards';
 import Footer from '../components/Footer';
+import Popular from '../components/Popular';
+import { Link } from 'react-router-dom';
 
 function Home() {
     return (
@@ -30,10 +32,12 @@ function Home() {
                             {/* Tugmalar */}
                             <div className="flex gap-4 pb-12">
                                 {/* Play tugmasi */}
-                                <button className="flex items-center gap-2 px-6 py-3 text-lg font-semibold text-black bg-white rounded-md shadow-md hover:bg-gray-200">
-                                    <img src={play_icon} alt="Play" className="w-6" />
-                                    Play
-                                </button>
+                                <Link to={"/player/:id"}>
+                                    <button className="flex items-center gap-2 px-6 py-3 text-lg font-semibold text-black bg-white rounded-md shadow-md hover:bg-gray-200">
+                                        <img src={play_icon} alt="Play" className="w-6" />
+                                        Play
+                                    </button>
+                                </Link>
                                 {/* More Info tugmasi */}
                                 <button className="flex items-center gap-2 px-6 py-3 text-lg font-semibold text-white bg-gray-600 rounded-md shadow-md hover:bg-gray-500">
                                     <img src={info_icon} alt="Info" className="w-6" />
@@ -47,10 +51,11 @@ function Home() {
                     <TitleCards />
 
                     <div>
-                        <TitleCards title={"Blockbuster Movies"} />
-                        <TitleCards title={"Only on Netflix"} />
-                        <TitleCards title={"Upcoming Movies"} />
-                        <TitleCards title={"Top Pics for you"} />
+                        <TitleCards title={"Blockbuster Movies"} category={"top_rated"} />
+                        <Popular />
+                        {/* <TitleCards title={"Only on Netflix"} /> */}
+                        <TitleCards title={"Upcoming Movies"} category={"upcoming"} />
+                        <TitleCards title={"Top Pics for you"} category={"now_playing"} />
                     </div>
                 </div>
 
