@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 import cards_data from '../assets/cards/Cards_data';
+import { Link } from 'react-router-dom';
 
 function TitleCards({ title, category }) {
     const [apidate, setApidate] = useState([]);
@@ -62,7 +63,7 @@ function TitleCards({ title, category }) {
                     ref={cardsRef}
                 >
                     {apidate.map((card) => (
-                        <div
+                        <Link to={`/player/${card.id}`}
                             key={card.id}
                             className="flex-none w-64 overflow-hidden transition-transform duration-300 ease-out transform rounded shadow-lg hover:scale-105 hover:shadow-xl"
                         >
@@ -74,7 +75,7 @@ function TitleCards({ title, category }) {
                             <p className="mt-2 text-lg font-medium text-center cursor-pointer">
                                 {card.original_title}
                             </p>
-                        </div>
+                        </Link >
                     ))}
                 </div>
             </div>
