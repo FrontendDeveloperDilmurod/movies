@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import search_icon from '../assets/search_icon.svg';
@@ -7,9 +7,12 @@ import profile_img from '../assets/profile_img.png';
 import caret_icon from '../assets/caret_icon.svg';
 
 function Navbar() {
+    const navRef = useRef();
+
+
     return (
         //fixed top-0 left-0 right-0 z-10 flex items-center justify-between w-full px-4 py-6 bg-black md:px-16">
-        <nav className="flex justify-between p-6 font-semibold shadow-2xl ">
+        <nav ref={navRef} className="fixed top-0 left-0 right-0 z-10 flex justify-between p-2 font-semibold bg-black shadow-2xl">
             {/* Logo */}
             <Link to={'/'} className="cursor-pointer">
                 <img className="w-44 sm:w-56" src={logo} alt="Logo" />

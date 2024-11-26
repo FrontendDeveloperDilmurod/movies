@@ -44,9 +44,9 @@ function Player() {
             {/* Orqaga qaytish tugmasi */}
             <button
                 onClick={goBack}
-                className="absolute p-3 transition-all duration-300 ease-out bg-transparent rounded-full top-6 left-6 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                className="absolute p-3 transition-all duration-300 ease-out bg-transparent rounded-full top-24 left-60 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-gray-500"
             >
-                <img src={back_arrow_icon} alt="Back" className="w-8 h-8 text-white" />
+                <img src={back_arrow_icon} alt="Back" className="w-12 h-12 text-white" />
             </button>
 
             {/* Yuklanish jarayoni */}
@@ -68,11 +68,11 @@ function Player() {
                     </div>
 
                     {/* Ma’lumotlar */}
-                    <div className="flex items-center justify-between gap-12 mt-4">
+                    <div className="flex flex-col gap-12 mt-4 sm:flex-row sm:items-center sm:justify-between">
                         <h4 className="mt-2 text-lg text-gray-400">
                             {data.published_at ? data.published_at.slice(0, 10) : "Sana mavjud emas"}
                         </h4>
-                        <h4 className="mt-2 text-xl font-semibold text-white">
+                        <h4 className="mt-2 text-lg font-semibold text-center text-white sm:text-left">
                             {data.name || "Noma’lum video"}
                         </h4>
                         <h4 className="mt-2 text-lg text-gray-300">{data.type || "Turi noma’lum"}</h4>
